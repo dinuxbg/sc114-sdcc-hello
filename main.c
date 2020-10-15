@@ -24,14 +24,20 @@ void main(void)
 	int n=0;
 
 	while(1) {
-		DIO=n++;
+		/* Ding-dong pattern on SC129 8-bit parallel output. */
+		DIO= (n >= 8) ? (1 << (15-n)) : (1 << n);
 
-		scmon_delay_ms(900);
-		LEDST = 0;
+		/* Show that we can also control the SC114 single LED. */
+		LEDST = !!(n & 0x08);
+
+		/* Call SCMON Function. */
 		scmon_delay_ms(100);
-		LEDST = 1;
 
-		scmon_putline("....\n");
+		if (++n == 16) {
+			/* Call SCMON console output function. */
+			scmon_putline("....\n");
+			n = 0;
+		}
 	}
 }
 

@@ -45,7 +45,7 @@ static inline uint8_t scmon_getline(uint8_t max_size, uint8_t *ptr)
 	return scmon_api1(4, max_size, (uint16_t)(ptr));
 }
 
-static inline void scmon_putline(char *ptr)
+static inline void scmon_putline(const char *ptr)
 {
 	scmon_api1(6, 0, (uint16_t)(ptr));
 }
