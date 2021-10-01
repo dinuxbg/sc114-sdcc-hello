@@ -11,7 +11,7 @@ Helpful C wrappers are provided for some of the SCMON API entry points (e.g. pri
 Z88DK is not packaged in Debian, and I could not find any other working examples for plain SDCC on RC2014-like single board computers.
 
 ## Building And Running
-I have validated with SDCC version 3.8.0 using the following hardware configuration:
+I have validated with SDCC version 4.1.0 using the following hardware configuration:
 
  * [SC114 Z80 Motherboard Kit for RC2014](https://smallcomputercentral.wordpress.com/sc114-documentation/)
  * [SC129 Digital I/O Module Kit for RC2014](https://smallcomputercentral.wordpress.com/sc129-digital-i-o-rc2014/)

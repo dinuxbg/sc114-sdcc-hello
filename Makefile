@@ -5,7 +5,7 @@ OBJS := scmon_api.rel main.rel
 
 # Keep CRT0 first in link order.
 main.s: crt0.rel $(OBJS)
-	sdcc -mz80                            \
+	sdcc-sdcc -mz80                       \
 		--code-loc 0x8000             \
 		--data-loc 0x9000             \
 		--no-std-crt0 \
@@ -14,10 +14,10 @@ main.s: crt0.rel $(OBJS)
 		-o $@
 
 %.rel: %.S
-	sdasz80 -o $@ $<
+	sdcc-sdasz80 -o $@ $<
 
 %.rel: %.c
-	sdcc -mz80 -c -o $@ $<
+	sdcc-sdcc -mz80 -c -o $@ $<
 
 run: main.s
 	cat $^ > /dev/ttyUSB0
